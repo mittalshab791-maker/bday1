@@ -364,14 +364,20 @@ if check_password():
         <div class="mascot-right">👩‍❤️‍👨</div>
     """, unsafe_allow_html=True)
 
-    # 🎵 HIDDEN AUDIO PLAYER
+    # 🎵 AUDIO PLAYER (Fix: Pure HTML5 Audio without iframe download trigger)
     song_url = "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3"
     st.markdown(
         f"""
-        <iframe src="{song_url}" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-        <audio autoplay loop style="display:none;">
+        <audio autoplay loop style="display:none;" id="bgAudio">
             <source src="{song_url}" type="audio/mp3">
         </audio>
+        <script>
+            var audio = document.getElementById("bgAudio");
+            audio.volume = 0.5;
+            document.addEventListener('click', function() {{
+                audio.play();
+            }}, {{ once: true }});
+        </script>
         """,
         unsafe_allow_html=True
     )
