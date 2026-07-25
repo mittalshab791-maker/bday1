@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # 🔑 SECRET PASSWORD SETUP
-SECRET_PASSWORD = "vivanishika"
+SECRET_PASSWORD = "Vi@240307"
 
 # Custom CSS for Styling & Cute Envelope Design
 st.markdown("""
